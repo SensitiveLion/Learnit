@@ -1,0 +1,35 @@
+<%- if @lesson.errors.present? -%>
+  <%- @lesson.errors.full_messages.each do |error| -%>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h1>create lesson for <%= @course.name %></h1>
+
+<div class="row">
+  <div class="small-8 large-centered column">
+    <%= form_for [@course, @lesson] do |f| %>
+
+      <div class="field">
+        <%= f.label :title, "title" %>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= f.label :body, "lesson body" %>
+        <%= f.text_area :body %>
+      </div>
+
+      <div class="field">
+        <%= f.label :outside_links, "link to further information" %>
+        <%= f.text_area :outside_links %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "add lesson" %>
+      </div>
+    <% end %>
+  </div>
+</div>

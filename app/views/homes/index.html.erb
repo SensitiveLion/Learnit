@@ -1,4 +1,6 @@
-<p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
-</p>
+<div class="panel">
+  <h5><%= link_to "add a new course", new_course_path %></h5>
+</div>
+  <% @courses.each do |course| %>
+    <h3><%= course.name %></h3>
+  <% end %>

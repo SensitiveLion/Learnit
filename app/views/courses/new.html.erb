@@ -1,0 +1,30 @@
+<%- if @course.errors.present? -%>
+  <%- @course.errors.full_messages.each do |error| -%>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h1>enter the course information</h1>
+
+<div class="row">
+  <div class="small-8 large-centered column">
+    <%= form_for @course do |f| %>
+
+      <div class="field">
+        <%= f.label :name, "name" %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description, "course description" %>
+        <%= f.text_area :description %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "add course" %>
+      </div>
+    <% end %>
+  </div>
+</div>
