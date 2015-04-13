@@ -1,6 +1,7 @@
 <h1><%= @course.name %></h1>
 <% @lessons.each do |lesson| %>
-  <h2><%= @lesson.title %></h2>
-  <h5><%= @lesson.body %></h5>
+  <h2><%= lesson.title %></h2>
+  <h5><%= lesson.body %></h5>
 <% end %>
-<%= link_to "back to course page", course_path(@lesson.course) %>
+<%= paginate @lessons %>
+<%= link_to "back to course page", course_path(@lessons.course) %>

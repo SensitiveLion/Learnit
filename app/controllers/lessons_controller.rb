@@ -1,8 +1,8 @@
 class LessonsController < ApplicationController
   before_action :authenticate_user!, except: :show
 
-  def index
-    @lesson = Lesson.find(params[:id])
+  def show
+    @lessons = Lesson.all.page params[:page]
   end
 
   def new
