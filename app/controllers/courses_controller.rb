@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-    @lessons = @course.lessons.order(:created_at).page params[:page]
+    @lessons = Lesson.all
   end
 
   def new

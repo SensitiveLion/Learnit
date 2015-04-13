@@ -2,5 +2,5 @@
   <h5><%= link_to "add a new course", new_course_path %></h5>
 </div>
   <% @courses.each do |course| %>
-    <h3><%= course.name %></h3>
+    <h3><%= link_to course.name, course_path(course) %></h3>
   <% end %>

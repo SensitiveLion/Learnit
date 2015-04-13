@@ -1,1 +1,6 @@
-<h1> WHUT</h1>
+<h1><%= @course.name %></h1>
+<% @lessons.each do |lesson| %>
+  <h3><%= link_to lesson.title, course_lesson_path(@course,lesson) %></h3>
+<% end %>
+
+

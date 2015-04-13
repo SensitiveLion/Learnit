@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   before_action :authenticate_user!, except: :show
 
-  def show
+  def index
     @lesson = Lesson.find(params[:id])
   end
 
