@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   before_action :authenticate_user!, except: :show
 
-  def index
+  def show
     @lessons = Lesson.all.page params[:page]
   end
 

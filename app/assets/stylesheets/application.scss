@@ -205,11 +205,10 @@ a:hover {
   padding: 0;
 }
 
-.large-4 img {
-  padding-top: 140px;
+.panel li {
+  color: $font-color;
 }
 
-.carousel {
-    position: relative;
-    right: 13%;
+ul {
+  list-style-type: none;
 }

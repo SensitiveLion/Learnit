@@ -1,6 +1,17 @@
-<h1><%= binding.pry %></h1>
-<% @lessons.each do |lesson| %>
-  <h3><%= link_to lesson.title, course_lessons_path(@course) %></h3>
-<% end %>
+<h1><%= @course.name %></h1>
+<div class="row">
+  <div class="small-8 large-centered column">
+    <div class="panel">
+      <ol>
+        <% @lessons.each do |lesson| %>
+          <li class="larger"><%= lesson.title %></li>
+          <ul>
+            <li><%= lesson.body %></li>
+          </ul>
+        <% end %>
+      </ol>
+    </div>
+  </div>
+</div>
 
 
