@@ -13,17 +13,22 @@
     <%= form_for [@course, @lesson] do |f| %>
 
       <div class="field">
-        <%= f.label :title, "title" %>
+        <%= f.label :title, "Title of this lesson (you can make as many lessons as you want)" %>
         <%= f.text_field :title %>
       </div>
 
       <div class="field">
-        <%= f.label :body, "lesson body" %>
-        <%= f.text_area :body %>
+        <%= f.label :body, "Part one" %>
+        <%= f.text_area :body, rows: 30%>
       </div>
 
       <div class="field">
-        <%= f.label :outside_links, "link to further information" %>
+        <%= f.label :second_body, "Part two" %>
+        <%= f.text_area :second_body, rows: 30%>
+      </div>
+
+      <div class="field">
+        <%= f.label :outside_links, "Link to further information on this lesson (format: http://google.com)" %>
         <%= f.text_area :outside_links %>
       </div>
 

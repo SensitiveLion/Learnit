@@ -7,10 +7,13 @@
           <li class="larger"><%= lesson.title %></li>
           <ul>
             <li><%= lesson.body %></li>
+            <li><%= lesson.second_body %></li>
           </ul>
         <% end %>
       </ol>
     </div>
+    <%= link_to "add a lesson", new_course_lesson_path(@course) %>
+    <%= user.set_mark :favorite, @course %>
   </div>
 </div>
 

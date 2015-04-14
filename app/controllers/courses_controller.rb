@@ -1,5 +1,9 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_user!, except: :show
+  before_action :authenticate_user!, except: [:show, :index]
+
+  def index
+    @course = Course.all
+  end
 
   def show
     @course = Course.find(params[:id])

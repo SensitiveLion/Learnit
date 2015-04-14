@@ -15,69 +15,39 @@
  *= require_self
  *= require foundation_and_overrides
  *= require_tree ./modules
- *= require slick
- *= require slick-theme
 
  */
 $nexa-font: "Nexa Light", sans-serif;
-$font-color: #ffffff;
-$background-color: #222222;
-$panel-color: #444444;
-$panel-border: #d8d8d8;
+$font-color: #000000;
+$background-color: #CEC100;
+$panel-color: #CEC100;
+$panel-border: #000000;
 $visited-color: #cc0000;
-$hover-color: #999999;
+$hover-color: #555555;
 $unvisited-color: #ff3300;
+$body-bg: transparent;
 
- @font-face {
-   font-family: "Nexa Light";
-   src: font-url('nexa_light.otf');
+@font-face {
+  font-family: "Nexa Light";
+  src: font-url('nexa_light.otf');
 }
+
 
 .larger {
   color: $font-color;
   font-size: 150%;
 }
 
-.smaller {
-  font-size: 75%;
-}
 
-.vote-arrows {
-  width: 40px;
-  text-align: center;
-}
-
-.inline {
-  display: inline;
-}
-
-#wrapper {
-  background-image: url("http://imgur.com/7OV7GsB.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+body {
+  background: url("http://i.imgur.com/BEk1jf2.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  width: 110%;
-  z-index: 0;
-  position: relative;
-  left: -1em;
-}
-
-.autoplay {
-  position: relative;
-  top: 10px;
-}
-
-#sidebar_img {
-  width: 300px;
-  height: 465px;
-}
-
-body {
-  background: $background-color;
+  background-size: cover;
   color: $font-color;
   font-family: $nexa-font;
+  font-weight: bold
 }
 
 #title {
@@ -89,6 +59,7 @@ h1, h2, h3, h4, h5, h6 {
   color: $font-color;
   font-family: $nexa-font;
   text-align: center;
+  font-weight: bold;
 }
 
 a {
@@ -108,22 +79,13 @@ a:hover {
   color: $hover-color;
 }
 
-#l_sidebar {
-  text-align: center;
-}
-
-.slick {
-  text-align: center;
-}
-
 .panel {
   background-color: $panel-color;
+  border: 5px solid $panel-border;
   border-radius: 5px;
+  word-wrap: break-word;
 }
 
-.vote-arrows {
-  color: $font-color;
-}
 
 .panel .panel-text {
   color: $font-color;
@@ -133,16 +95,11 @@ a:hover {
   color: $font-color;
 }
 
-.top-bar-section {
+.top-bar-section li:not(.has-form) a:not(.button) {
+  color: $font-color;
   font-family: $nexa-font;
-}
-
-.xp {
-  padding-top: 10px;
-}
-
-.right {
-  font-family: $nexa-font;
+  background-color: $background-color;
+  font-size: 1.3em;
 }
 
 .photo {
@@ -173,16 +130,6 @@ a:hover {
 
 .field label {
   color: $font-color;
-  font-size: 1em;
-}
-
-.tag {
-  border-color: $panel-border;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-  padding: 0.15rem 0.40rem;
-  text-align: inline;
 }
 
 #nameplate {
@@ -211,4 +158,21 @@ a:hover {
 
 ul {
   list-style-type: none;
+}
+
+a img{
+  height: 15em;
+}
+
+.main_page {
+  height: 30em;
+}
+
+.top-bar {
+  background-color: $background-color
+}
+
+.readable {
+  color: $unvisited-color;
+  font-size: 1.2em;
 }

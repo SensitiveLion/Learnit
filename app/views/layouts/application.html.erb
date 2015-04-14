@@ -7,19 +7,21 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag '/favicon.ico' %>
   </head>
 <body>
 
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="/">Learnit</a></h1>
+        <h1 id="nameplate"><a href="/">Learnit  <img src="http://i.imgur.com/pu88NQ4.png" class="logo"></a></h1>
       </li>
     </ul>
 
     <section class="top-bar-section">
       <ul class="right">
         <%- if current_user -%>
+          <li><%= link_to "profile" , courses_path %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
@@ -40,4 +42,18 @@
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
 </body>
+<footer class="row">
+  <div class="large-12 columns"><hr>
+    <div class="row">
+      <div class="large-6 columns">
+          <p>© Copyright no one at all. Go to town.</p>
+      </div>
+      <div class="large-6 small-12 columns">
+          <ul class="inline-list right">
+            <li class="readable"><a href="https://github.com/sensitivelion">andy</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</footer>
 </html>

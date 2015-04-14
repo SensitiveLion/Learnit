@@ -1,6 +1,25 @@
-<div class="panel">
-  <h5><%= link_to "add a new course", new_course_path %></h5>
+<div class="row">
+  <div class="small-8 large-centered column">
+    <h1>Learnit</h1>
+    <h3>
+      <%= link_to image_tag("learning_ninja.png"), courses_path %>
+    </h3>
+  </div>
 </div>
-  <% @courses.each do |course| %>
-    <h3><%= link_to course.name, course_path(course) %></h3>
-  <% end %>
+<div class="row">
+  <div class="small-6 large-centered column">
+    <div class="panel">
+      <h3>About</h3>
+      <h5>Cpck the ninja to learn something</h5>
+      <p>You will be sent to a random user submitted course</p>
+      <p>It may have one lesson or twenty</p>
+      <p>It may be about baking or bald eagles</p>
+      <p>Learn something new
+      <p>add a course to teach someone else.</p>
+      <p><%= link_to "add a new course", new_course_path %></p>
+    </div>
+  </div>
+</div>
+
+
+
