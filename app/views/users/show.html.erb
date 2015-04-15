@@ -29,7 +29,7 @@
           <ul>
             <% if @user.courses != nil %>
               <% @user.courses.each do |course|%>
-                <%= link_to course.name, course_path(course) %>
+                <li><%= link_to course.name, course_path(course) %><li>
               <% end %>
             <% else %>
               You have not submitted any games

@@ -11,6 +11,8 @@
 <div class="row">
   <div class="small-8 large-centered column">
     <div class="panel">
+      <%= link_to "Markdown", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" %> is supported in both body one and two
+      <p></p>
       <%= form_for [@course, @lesson] do |f| %>
 
         <div class="field">
@@ -19,12 +21,12 @@
         </div>
 
         <div class="field">
-          <%= f.label :body, "Part one" %>
+          <%= f.label :body, "Body one" %>
           <%= f.text_area :body, rows: 30%>
         </div>
 
         <div class="field">
-          <%= f.label :second_body, "Part two" %>
+          <%= f.label :second_body, "Body two" %>
           <%= f.text_area :second_body, rows: 30%>
         </div>
 
