@@ -2,7 +2,7 @@
   <div class="small-8 large-centered column">
     <h1>Learnit</h1>
     <h3>
-      <% if @course != nil %>
+      <% if @course[0] != nil %>
         <%= link_to image_tag("learning_ninja.png"), course_path(@course[0].id) %>
       <% else %>
         <%= link_to image_tag("learning_ninja.png"), new_course_path %>
