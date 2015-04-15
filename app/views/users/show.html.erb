@@ -1,2 +1,42 @@
-<img src= "learning_ninja.png">
-
+<h1><%= @user.email %></h1>
+<div class="row">
+  <div class="large-12 large-centered column">
+    <ul class="large-block-grid-3">
+      <li>
+        <div class="panel">
+          <h3>Saved</h3>
+          <ul>
+            <% if @save != nil %>
+              <% @save.each do |save|%>
+                <li>
+                  <%= link_to save.course.name, course_path(save.course) %>
+                </li>
+              <% end %>
+            <% else %>
+              You have no saved games
+            <% end %>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <h6>
+          <%= link_to image_tag("learning_ninja.png") %>
+        </h6>
+      </li>
+      <li>
+        <div class="panel">
+          <h3>Submitted</h3>
+          <ul>
+            <% if @user.courses != nil %>
+              <% @user.courses.each do |course|%>
+                <%= link_to course.name, course_path(course) %>
+              <% end %>
+            <% else %>
+              You have not submitted any games
+            <% end %>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
