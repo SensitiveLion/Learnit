@@ -3,6 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @lessons = Lesson.all
+    @save = Save.where user: current_user
   end
 end

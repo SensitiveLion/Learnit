@@ -136,6 +136,11 @@ a:hover {
   font-size: 1.7em;
 }
 
+.logo {
+  height: 30px;
+  overflow: hidden;
+}
+
 .btn {
   background:none;
   border:none;
@@ -155,7 +160,8 @@ a:hover {
   padding: 0;
 }
 
-.panel li {
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5,
+ .panel h6, .panel p, .panel li, .panel dl {
   color: $font-color;
 }
 
