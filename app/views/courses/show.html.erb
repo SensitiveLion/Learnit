@@ -6,7 +6,7 @@
         <% @lessons.each do |lesson| %>
           <li class="larger"><%= lesson.title %></li>
           <ul>
-            <li><%= lesson.body %></li>
+            <li><%= markdown(lesson.body) %></li>
             <p></p>
             <li><%= lesson.second_body %></li>
           </ul>
