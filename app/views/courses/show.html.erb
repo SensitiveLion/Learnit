@@ -13,7 +13,7 @@
             <div class="right">
               <% if current_user != nil %>
                 <% if current_user == @course.user || current_user.has_authority? %>
-                  <%= link_to "Edit", edit_lesson_path(@course) %> ||
+                  <%= link_to "Edit", edit_lesson_path(lesson) %> ||
                   <%= link_to "Delete", lesson, method: :delete %>
                 <% end %>
               <% end %>

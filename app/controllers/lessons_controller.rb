@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
     @course = Course.find(params[:course_id])
     @lesson.course = @course
+    @lesson.user = current_user
 
     if @lesson.save
       flash[:notice] = "lesson submitted."
@@ -21,11 +22,11 @@ class LessonsController < ApplicationController
   end
 
   def edit
-    @lesson = user_lesson
+    @lesson = Lesson.find(params[:id])
   end
 
   def update
-    @lesson = user_cour
+    @lesson = Lesson.find(params[:id])
     @course = @lesson.course
     if @lesson.update(lesson_params)
       flash[:notice] = "you have successfully edited the lesson!"
@@ -37,12 +38,11 @@ class LessonsController < ApplicationController
   end
 
   def destroy
-    @lesson = user_lesson
+    @lesson = Lesson.find(params[:id])
     @course = @lesson.course
     @lesson.destroy
 
     unless @course.id.nil?
-      @course.update_average
       redirect_to course_path(@course)
     end
   end
