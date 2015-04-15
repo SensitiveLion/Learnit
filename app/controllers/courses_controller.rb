@@ -8,6 +8,7 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @lessons = @course.lessons.order(:created_at)
+    @save = Save.new
   end
 
   def new
@@ -50,6 +51,7 @@ class CoursesController < ApplicationController
     flash[:notice] = 'course deleted.'
     redirect_to action: "index"
   end
+
   def course_params
     params.require(:course).permit(:name, :description)
   end
