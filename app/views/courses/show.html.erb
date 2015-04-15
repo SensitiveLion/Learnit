@@ -7,13 +7,14 @@
           <li class="larger"><%= lesson.title %></li>
           <ul>
             <li><%= lesson.body %></li>
+            <p></p>
             <li><%= lesson.second_body %></li>
           </ul>
         <% end %>
       </ol>
-    </div>
     <%= link_to "add a lesson", new_course_lesson_path(@course) %>
-    <%= user.set_mark :favorite, @course %>
+    <%= link_to "save course", course_saves_path(@course), method: :post %>
+    </div>
   </div>
 </div>
 

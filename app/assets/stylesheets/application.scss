@@ -81,7 +81,7 @@ a:hover {
 
 .panel {
   background-color: $panel-color;
-  border: 5px solid $panel-border;
+  border: 1px solid $panel-border;
   border-radius: 5px;
   word-wrap: break-word;
 }
@@ -149,6 +149,9 @@ a:hover {
   background:none;
   border:none;
   color: $unvisited-color;
+  font-family: $nexa-font;
+  font-size: 1em;
+  font-weight: bold;
   padding: 0;
 }
 
@@ -173,6 +176,5 @@ a img{
 }
 
 .readable {
-  color: $unvisited-color;
   font-size: 1.2em;
 }
