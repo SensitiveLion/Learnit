@@ -49,7 +49,7 @@ class CoursesController < ApplicationController
     end
     @course.destroy
     flash[:notice] = 'course deleted.'
-    redirect_to action: "index"
+    redirect_to root_path
   end
 
   def course_params

@@ -1,9 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :authenticate_user!, except: :show
-
-  def show
-    @lessons = Lesson.all.page params[:page]
-  end
+  before_action :authenticate_user!
 
   def new
     @course = Course.find(params[:course_id])
@@ -29,7 +25,7 @@ class LessonsController < ApplicationController
   end
 
   def update
-    @lesson = user_lesson
+    @lesson = user_cour
     @course = @lesson.course
     if @lesson.update(lesson_params)
       flash[:notice] = "you have successfully edited the lesson!"
