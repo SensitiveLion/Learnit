@@ -2,6 +2,6 @@ class Save < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
 
-  validates :course_id, presance: true
-  validates :user_id, presance: true
+  validates :course, presence: true
+  validates :user, presence: true, uniqueness: { scope: :course }
 end
