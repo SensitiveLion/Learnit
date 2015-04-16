@@ -14,17 +14,17 @@
       <%= form_for @course do |f| %>
 
         <div class="field">
-          <%= f.label :name, "name" %>
+          <%= f.label :name, "Article name" %>
           <%= f.text_field :name %>
         </div>
 
         <div class="field">
-          <%= f.label :description, "course description" %>
+          <%= f.label :description, "Article description" %>
           <%= f.text_area :description %>
         </div>
 
         <div class="actions">
-          <%= f.submit "edit course" %>
+          <%= f.submit "Edit course" %>
         </div>
       <% end %>
     </div>

@@ -184,3 +184,18 @@ a img{
 .readable {
   font-size: 1.2em;
 }
+
+.circle a {
+  display: block;
+  height: 4em;
+  width: 4em;
+  line-height: 4em;
+
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 1em;
+}

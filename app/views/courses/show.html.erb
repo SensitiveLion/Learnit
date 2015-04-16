@@ -7,8 +7,6 @@
           <li class="larger"><%= lesson.title %></li>
           <ul>
             <li><%= markdown(lesson.body) %></li>
-            <p></p>
-            <li><%= lesson.second_body %></li>
             <li><%= link_to "more information", lesson.outside_links %></li>
             <div class="right">
               <% if current_user != nil %>

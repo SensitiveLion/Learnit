@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :saves, only: :create
   end
 
+  resources :categories, only: :show
   resources :lessons, only: [:edit, :update, :destroy]
 
   devise_for :users

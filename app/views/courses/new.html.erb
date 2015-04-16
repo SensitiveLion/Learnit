@@ -14,22 +14,22 @@
       <%= form_for @course do |f| %>
 
         <div class="field">
-          <%= f.label :name, "name" %>
+          <%= f.label :name, "Article name" %>
           <%= f.text_field :name %>
         </div>
 
         <div class="field">
-          <%= f.label :description, "course description" %>
+          <%= f.label :description, "Article description" %>
           <%= f.text_area :description %>
         </div>
 
         <div class="field">
-          <%= f.label :category, "What is it about?" %>
+          <%= f.label :category, "Category" %>
           <%= f.select(:category_id, @categories.collect { |category| [category.name, category.id] }) %>
         </div>
 
         <div class="actions">
-          <%= f.submit "add course" %>
+          <%= f.submit "Add course" %>
         </div>
       <% end %>
     </div>
