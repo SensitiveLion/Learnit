@@ -9,36 +9,33 @@
 <h1>Create lesson for <%= @course.name %></h1>
 
 <div class="row">
+</div>
   <div class="small-8 large-centered column">
     <div class="panel">
       <%= link_to "Markdown", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" %> is supported in both body one and two
       <p></p>
       <%= form_for [@course, @lesson] do |f| %>
 
-        <div class="field">
-          <%= f.label :title, "Title of this lesson (you can make as many lessons as you want)" %>
+                <div class="field">
+          <%= f.label :title, "Section title (you can make as many sections as you want)" %>
           <%= f.text_field :title %>
         </div>
 
         <div class="field">
-          <%= f.label :body, "Body one" %>
+          <%= f.label :body, "Section Body" %>
           <%= f.text_area :body, rows: 30%>
         </div>
 
         <div class="field">
-          <%= f.label :second_body, "Body two" %>
-          <%= f.text_area :second_body, rows: 30%>
-        </div>
-
-        <div class="field">
-          <%= f.label :outside_links, "Link to further information on this lesson (format: http://google.com)" %>
+          <%= f.label :outside_links, "Link to further information on this section (format: http://google.com)" %>
           <%= f.text_area :outside_links %>
         </div>
 
         <div class="actions">
-          <%= f.submit "add lesson" %>
+          <%= f.submit "Edit lesson" %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+

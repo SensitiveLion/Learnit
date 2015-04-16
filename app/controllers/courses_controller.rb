@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @categories = Category.all
   end
 
   def create
@@ -53,6 +54,6 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:name, :description)
+    params.require(:course).permit(:name, :description, :category_id)
   end
 end

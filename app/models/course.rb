@@ -1,9 +1,11 @@
 class Course < ActiveRecord::Base
   belongs_to :user
-  has_many :lessons
-  has_many :saves
+  belongs_to :category
+  has_many :lessons, dependent: :destroy
+  has_many :saves, dependent: :destroy
 
   validates :user, presence: true
+  validates :category, presence: true
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
 end

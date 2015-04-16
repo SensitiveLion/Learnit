@@ -23,6 +23,11 @@
           <%= f.text_area :description %>
         </div>
 
+        <div class="field">
+          <%= f.label :category, "What is it about?" %>
+          <%= f.select(:category_id, @categories.collect { |category| [category.name, category.id] }) %>
+        </div>
+
         <div class="actions">
           <%= f.submit "add course" %>
         </div>
