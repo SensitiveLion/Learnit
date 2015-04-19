@@ -3,7 +3,8 @@
   <div class="small-6 large-centered column">
     <div class="panel">
       <ul>
-        <% if @courses != nil %>
+        <% if @courses.count != 0 %>
+          <%= binding.pry %>
           <% @courses.each do |course|%>
             <li class="larger">
               <%= link_to course.name, course_path(course) %>
@@ -13,10 +14,7 @@
             </ul>
           <% end %>
         <% else %>
-          <li>
-            There are no courses in this category you can <%= link_to "add a new course", new_course_path %>
-
-          <li>
+          <li><%= link_to "add a new course", new_course_path %></li>
         <% end %>
       </ul>
     </div>

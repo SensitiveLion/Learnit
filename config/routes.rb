@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :saves, only: :create
   end
 
+  resources :searches, only: :index
+
   resources :categories, only: :show
   resources :lessons, only: [:edit, :update, :destroy]
 
