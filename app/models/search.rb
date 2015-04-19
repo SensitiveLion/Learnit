@@ -14,8 +14,8 @@ class Save
       url = url.gsub(/.search?(.*)/,"" )
       url = url.gsub(/(.*)google.com(.*)/,"" )
       url = url.gsub(/(.*)webcache.(.*)/,"" )
-      @google_link = url
-      @google_text = link.text
+      @link = url
+      @text = link.text
     end
   end
 
@@ -23,7 +23,7 @@ class Save
     agent = Mechanize.new
     @bing = agent.get('https://bing.com/')
     bing_form = page.form()
-    bing_form.q = 'ruby mechanize'
+    bing_form.q = query
     @bing = agent.submit(bing_form)
   end
 
@@ -32,8 +32,8 @@ class Save
       if link.href != nil && link.text != nil
         url = link.href.gsub(/^(?!http(.*)$).*/,"")
         url = url.gsub(/(.*)microsoft.com(.*)/,"")
-        @bing_link = url
-        @bing_text = link.text
+        @link = url
+        @text = link.text
       end
     end
   end
@@ -42,7 +42,7 @@ class Save
     agent = Mechanize.new
     @yahoo = agent.get('https://search.yahoo.com/')
     yahoo_form = page.form('s')
-    yahoo_form.p = 'ruby mechanize'
+    yahoo_form.p = query
     @yahoo = agent.submit(bing_form)
   end
 
@@ -53,8 +53,8 @@ class Save
         url = url.gsub(/(.*)flickr.com(.*)/,"")
         url = url.gsub(/javascript(.*)/,"")
         url = url.gsub(/(.*)cache.aspx(.*)/,"")
-        @yahoo_link = url
-        @yahoo_text = link.text
+        @link = url
+        @text = link.text
       end
     end
   end
@@ -63,7 +63,7 @@ class Save
     agent = Mechanize.new
     @ask = agent.get('http://www.ask.com/')
     ask_form = page.form()
-    ask_form.q = 'ruby mechanize'
+    ask_form.q = query
     @ask = agent.submit(bing_form)
   end
 
@@ -75,8 +75,8 @@ class Save
         url = url.gsub(/javascript(.*)/,"")
         text = link.text.gsub(/(.*)More »(.*)/,"")
         text = text.gsub(/(.*)Mobile Site(.*)/,"")
-        @ask_link = url
-        @ask_text = text
+        @link = url
+        @text = text
       end
     end
   end
@@ -85,7 +85,7 @@ class Save
     agent = Mechanize.new
     @aol = agent.get('http://search.aol.com/aol/webhome')
     aol_form = page.form('CSBsearchForm1')
-    aol_form.q = 'ruby mechanize'
+    aol_form.q = query
     @aol = agent.submit(goggle_form)
   end
 
@@ -100,8 +100,8 @@ class Save
         url = url.gsub(/^(?!http(.*)$).*/,"")
         text = link.text.gsub(/(.*)More »(.*)/,"")
         text = text.gsub(/(.*)Mobile Site(.*)/,"")
-        @aol_link = url
-        @aol_text = text
+        @link = url
+        @text = text
       end
     end
   end
@@ -110,7 +110,7 @@ class Save
     agent = Mechanize.new
     @wow = agent.get('http://www.wow.com/')
     goggle_form = page.form('SearchBoxForm')
-    goggle_form.q = 'ruby mechanize'
+    goggle_form.q = query
     @wow = agent.submit(goggle_form)
   end
 
@@ -121,8 +121,8 @@ class Save
         url = link.href.gsub(/(.*)wow.nextag.com(.*)/,"")
         url = url.gsub(/^(?!http(.*)$).*/,"")
         url = url.gsub(/(.*)aol.com(.*)/,"")
-        @wow_link = url
-        @wow_text = link.text
+        @link = url
+        @text = link.text
       end
     end
   end
