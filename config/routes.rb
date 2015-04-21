@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   resources :courses do
     resources :lessons, only: [:new, :create]
     resources :saves, only: :create
+    resources :searches, only: [:index, :create]
   end
-
-  resources :searches, only: :index
 
   resources :categories, only: :show
   resources :lessons, only: [:edit, :update, :destroy]

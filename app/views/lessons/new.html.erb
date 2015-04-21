@@ -9,7 +9,6 @@
 <h1>Create lesson for <%= @course.name %></h1>
 
 <div class="row">
-</div>
   <div class="small-8 large-centered column">
     <div class="panel">
       <%= link_to "Markdown", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" %> is supported in both body one and two
@@ -27,12 +26,12 @@
         </div>
 
         <div class="field">
-          <%= f.label :outside_links, "Link to further information on this section (format: http://google.com)" %>
+          <%= f.label :outside_links, "Link to further information on this section" %>
           <%= f.text_area :outside_links %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Edit lesson" %>
+          <%= f.submit "Add lesson" %>
         </div>
       <% end %>
     </div>

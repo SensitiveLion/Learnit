@@ -1,10 +1,12 @@
 class SearchesController < ApplicationController
   def index
-    @google = Search.google(params[:query])
-    @bing = Search.bing(params[:query])
-    @yahoo = Search.yahoo(params[:query])
-    @ask = Search.ask(params[:query])
-    @aol = Search.aol(params[:query])
-    @wow = Search.wow(params[:query])
+    @course = Course.find(params[:course_id])
+    @name = @course.name
+    @google = Search.google(@name)
+    @bing = Search.bing(@name)
+    @yahoo = Search.yahoo(@name)
+    @ask = Search.ask(@name)
+    @aol = Search.aol(@name)
+    @wow = Search.wow(@name)
   end
 end

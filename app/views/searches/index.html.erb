@@ -1,65 +1,126 @@
 <div class="large-12 columns">
   <div class="row">
-    <div class="large-4 small-6 columns">
+    <div class="small-10 large-centered column">
       <h1>Google</h1>
       <div class="panel">
-        <% @google.each do |google| %>
-          <% if google.link.length != 0 && google.text.length != 0 %>
-            <li><%= link_to google.text, google.link %></li>
+        <ol>
+        <% @google.links.each do |link| %>
+          <% url1 = link.href.gsub(/.url\?q\=/,"" ) %>
+          <% url2 = url1.gsub(/&sa=U&ei=(.*)/,"" ) %>
+          <% url3 = url2.gsub(/^(?!http(.*)$).*/,"" ) %>
+          <% url4 = url3.gsub(/.search?(.*)/,"" ) %>
+          <% url5 = url4.gsub(/(.*)google.com(.*)/,"" ) %>
+          <% url = url5.gsub(/(.*)webcache.(.*)/,"" ) %>
+          <% if url.length != 0 && link.text.length != 0 %>
+            <li><%= link_to link.text, url %></li>
           <% end %>
         <% end %>
-      </div>
-    </div>
-    <div class="large-4 small-6 columns">
-      <h1>Bing</h1>
-      <div class="panel">
-        <% @bing.each do |bing| %>
-          <% if bing.link.length != 0 && bing.text.length != 0 %>
-             <li><%= link_to bing.text, bing.link %></li>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <div class="large-4 small-6 columns">
-      <h1>Yahoo</h1>
-      <div class="panel">
-        <% @yahoo.each do |yahoo| %>
-          <% if yahoo.link.length != 0 && yahoo.text.length != 0 %>
-             <li><%= link_to yahoo.text, yahoo.link %></li>
-          <% end %>
-        <% end %>
+        </ol>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="large-4 small-6 columns">
+    <div class="small-10 large-centered column">
+      <h1>Bing</h1>
+      <div class="panel">
+        <ol>
+        <% @bing.links.each do |link| %>
+          <% if link.href != nil && link.text != nil%>
+            <% url1 = link.href.gsub(/^(?!http(.*)$).*/,"") %>
+            <% url = url1.gsub(/(.*)microsoft.com(.*)/,"") %>
+            <% if url.length != 0 && link.text.length != 0 %>
+              <li><%= link_to link.text, url %></li>
+            <% end %>
+          <% end %>
+        <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 large-centered column">
+      <h1>Yahoo</h1>
+      <div class="panel">
+        <ol>
+        <% @yahoo.links.each do |link| %>
+          <% if link.href != nil && link.text != nil%>
+            <% url1 = link.href.gsub(/(.*)yahoo(.*)/,"") %>
+            <% url2 = url1.gsub(/(.*)flickr.com(.*)/,"") %>
+            <% url3 = url2.gsub(/javascript(.*)/,"") %>
+            <% url = url3.gsub(/(.*)cache.aspx(.*)/,"") %>
+            <% if url.length != 0 && link.text != 0 %>
+              <li><%= link_to link.text, url %></li>
+            <% end %>
+          <% end %>
+        <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 large-centered column">
       <h1>Ask</h1>
       <div class="panel">
-        <% @ask.each do |ask| %>
-          <% if ask.link.length != 0 && ask.text.length != 0 %>
-             <li><%= link_to ask.text, ask.link %></li>
+        <ol>
+        <% @ask.links.each do |link| %>
+          <% if link.href != nil && link.text != nil%>
+            <% url1 = link.href.gsub(/(.*)ask.com(.*)/,"") %>
+            <% url2 = url1.gsub(/(.*)answers.yahoo(.*)/,"") %>
+            <% url = url2.gsub(/javascript(.*)/,"") %>
+            <% text1 = link.text.gsub(/(.*)More »(.*)/,"") %>
+            <% text = text1.gsub(/(.*)Mobile Site(.*)/,"") %>
+            <% if url.length != 0 && text.length != 0 %>
+              <li><%= link_to text, url %></li>
+            <% end %>
           <% end %>
         <% end %>
+        </ol>
       </div>
     </div>
-    <div class="large-4 small-6 columns">
+  </div>
+  <div class="row">
+    <div class="small-10 large-centered column">
       <h1>Aol</h1>
       <div class="panel">
-        <% @aol.each do |aol| %>
-          <% if aol.link.length != 0 && aol.text.length != 0 %>
-             <li><%= link_to aol.text, aol.link %></li>
+        <ol>
+        <% @aol.links.each do |link| %>
+          <% if link.href != nil && link.text != nil%>
+            <% url1 = link.href.gsub(/(.*)aol(.*)/,"") %>
+            <% url2 = url1.gsub(/(.*)google.com(.*)/,"") %>
+            <% url3 = url2.gsub(/(.*)search?(.*)/,"") %>
+            <% url4 = url3.gsub(/(.*)about?(.*)/,"") %>
+            <% url5 = url4.gsub(/javascript(.*)/,"") %>
+            <% url = url5.gsub(/^(?!http(.*)$).*/,"") %>
+            <% text1 = link.text.gsub(/(.*)More »(.*)/,"") %>
+            <% text2 = text1.gsub(/Data from: Freebase/,"") %>
+            <% text = text2.gsub(/(.*)Mobile Site(.*)/,"") %>
+            <% if url.length != 0 && text.length != 0 %>
+              <li><%= link_to text, url %></li>
+            <% end %>
           <% end %>
         <% end %>
+        </ol>
       </div>
     </div>
-    <div class="large-4 small-6 columns">
+  </div>
+  <div class="row">
+    <div class="small-10 large-centered column">
       <h1>Wow</h1>
       <div class="panel">
-        <% @wow.each do |wow| %>
-          <% if wow.link.length != 0 && wow.text.length != 0 %>
-             <li><%= link_to wow.text, wow.link %></li>
+        <ol>
+        <% @wow.links.each do |link| %>
+          <% if link.href != nil && link.text != nil%>
+            <% url1 = link.href.gsub(/(.*)wow.com(.*)/,"") %>
+            <% url2 = url1.gsub(/(.*)wow.nextag.com(.*)/,"") %>
+            <% url3 = url2.gsub(/^(?!http(.*)$).*/,"") %>
+            <% url = url3.gsub(/(.*)aol.com(.*)/,"") %>
+            <% text = link.text.gsub(/(.*)Data from: Freebase(.*)/,"") %>
+            <% if url.length != 0 && text.length != 0 %>
+              <li><%= link_to text, url %></li>
+            <% end %>
           <% end %>
         <% end %>
+        </ol>
       </div>
     </div>
   </div>

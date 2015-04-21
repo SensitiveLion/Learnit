@@ -4,7 +4,6 @@
     <div class="panel">
       <ul>
         <% if @courses.count != 0 %>
-          <%= binding.pry %>
           <% @courses.each do |course|%>
             <li class="larger">
               <%= link_to course.name, course_path(course) %>

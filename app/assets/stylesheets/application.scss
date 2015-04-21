@@ -183,6 +183,13 @@ a img{
 
 .readable {
   font-size: 1.2em;
+  background-color: $panel-color;
+  border-color: $panel-color;
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.15rem 0.40rem;
+  text-align: inline;
 }
 
 .circle a {
@@ -194,7 +201,7 @@ a img{
   -moz-border-radius: 50%;
   border-radius: 50%;
 
-  background-color: black;
+  background-color: $panel-border;
   color: white;
   text-align: center;
   font-size: 1.2em;
