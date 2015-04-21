@@ -112,10 +112,6 @@ a:hover {
   color: $visited-color;
 }
 
-.nope {
-  text-align: center;
-}
-
 .photo {
   height: 40px;
   overflow: hidden;
@@ -182,7 +178,7 @@ a img{
 }
 
 .readable {
-  font-size: 1.2em;
+  font-size: 0.8em;
   background-color: $panel-color;
   border-color: $panel-color;
   border-radius: 50px;
@@ -205,4 +201,13 @@ a img{
   color: white;
   text-align: center;
   font-size: 1.2em;
+}
+
+.head {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+p {
+  text-align: left;
 }

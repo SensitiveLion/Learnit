@@ -20,18 +20,20 @@
           </ul>
         <% end %>
       </ol>
+    </div>
+    <div class="left">
       <% if current_user != nil %>
         <% if current_user == @course.user || current_user.has_authority? %>
-          <%= link_to "Add a lesson", new_course_lesson_path(@course) %>
+          <%= link_to "Add a lesson", new_course_lesson_path(@course), class: :readable  %> ||
         <% end %>
       <% end %>
-       || <%= link_to "Save course", course_saves_path(@course), method: :post %>
+      <%= link_to "Save course", course_saves_path(@course), method: :post, class: :readable %>
     </div>
     <div class="right">
       <% if current_user != nil %>
         <% if current_user == @course.user || current_user.has_authority? %>
-          <%= link_to "Edit", edit_course_path(@course) %> ||
-          <%= link_to "Delete", @course, method: :delete %>
+          <%= link_to "Edit", edit_course_path(@course), class: :readable  %> ||
+          <%= link_to "Delete", @course, method: :delete, class: :readable  %>
         <% end %>
       <% end %>
     </div>

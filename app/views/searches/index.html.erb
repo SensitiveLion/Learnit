@@ -31,10 +31,12 @@
             <% url = url2.gsub(/(.*)freebase.com(.*)/,"") %>
             <% url = url2.gsub(/(.*)twitter.com(.*)/,"") %>
             <% text1 = link.text.gsub(/en.wikipedia.org(.*)/,"") %>
-            <% text2 = text1.gsub(/(.*)en.wikipedia.org(.*)/,"") %>
-            <% text = text2.gsub(/(.*)bit.ly(.*)/,"") %>
-            <% if url.length != 0 && link.text.strip.length != 0 %>
-              <li><%= link_to link.text, url %></li>
+            <% text2 = text1.gsub(/Freebase/,"") %>
+            <% text3 = text2.gsub(/(.*)bit.ly(.*)/,"") %>
+            <% text4 = text3.gsub(/^Wikipedia/,"") %>
+            <% text = text4.gsub(/^More on Wikipedia/,"") %>
+            <% if url.length != 0 && text.strip.length != 0 %>
+              <li><%= link_to text, url %></li>
             <% end %>
           <% end %>
         <% end %>
