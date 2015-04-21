@@ -1,5 +1,5 @@
 class Save
-  def google(query)
+  def self.google(query)
     agent = Mechanize.new
     @google = agent.get('http://google.com/')
     google_form = page.form('f')
@@ -19,7 +19,7 @@ class Save
     end
   end
 
-  def bing(query)
+  def self.bing(query)
     agent = Mechanize.new
     @bing = agent.get('https://bing.com/')
     bing_form = page.form()
@@ -38,7 +38,7 @@ class Save
     end
   end
 
-  def yahoo(query)
+  def self.yahoo(query)
     agent = Mechanize.new
     @yahoo = agent.get('https://search.yahoo.com/')
     yahoo_form = page.form('s')
@@ -59,7 +59,7 @@ class Save
     end
   end
 
-  def ask(query)
+  def self.ask(query)
     agent = Mechanize.new
     @ask = agent.get('http://www.ask.com/')
     ask_form = page.form()
@@ -81,7 +81,7 @@ class Save
     end
   end
 
-  def ask(query)
+  def self.aol(query)
     agent = Mechanize.new
     @aol = agent.get('http://search.aol.com/aol/webhome')
     aol_form = page.form('CSBsearchForm1')
@@ -106,7 +106,7 @@ class Save
     end
   end
 
-  def wow(query)
+  def self.wow(query)
     agent = Mechanize.new
     @wow = agent.get('http://www.wow.com/')
     goggle_form = page.form('SearchBoxForm')
