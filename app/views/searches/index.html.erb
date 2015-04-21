@@ -11,7 +11,7 @@
           <% url4 = url3.gsub(/.search?(.*)/,"" ) %>
           <% url5 = url4.gsub(/(.*)google.com(.*)/,"" ) %>
           <% url = url5.gsub(/(.*)webcache.(.*)/,"" ) %>
-          <% if url.length != 0 && link.text.length != 0 %>
+          <% if url.length != 0 && link.text.strip.length != 0 %>
             <li><%= link_to link.text, url %></li>
           <% end %>
         <% end %>
@@ -27,8 +27,13 @@
         <% @bing.links.each do |link| %>
           <% if link.href != nil && link.text != nil%>
             <% url1 = link.href.gsub(/^(?!http(.*)$).*/,"") %>
-            <% url = url1.gsub(/(.*)microsoft.com(.*)/,"") %>
-            <% if url.length != 0 && link.text.length != 0 %>
+            <% url2 = url1.gsub(/(.*)microsoft.com(.*)/,"") %>
+            <% url = url2.gsub(/(.*)freebase.com(.*)/,"") %>
+            <% url = url2.gsub(/(.*)twitter.com(.*)/,"") %>
+            <% text1 = link.text.gsub(/en.wikipedia.org(.*)/,"") %>
+            <% text2 = text1.gsub(/(.*)en.wikipedia.org(.*)/,"") %>
+            <% text = text2.gsub(/(.*)bit.ly(.*)/,"") %>
+            <% if url.length != 0 && link.text.strip.length != 0 %>
               <li><%= link_to link.text, url %></li>
             <% end %>
           <% end %>
@@ -48,7 +53,7 @@
             <% url2 = url1.gsub(/(.*)flickr.com(.*)/,"") %>
             <% url3 = url2.gsub(/javascript(.*)/,"") %>
             <% url = url3.gsub(/(.*)cache.aspx(.*)/,"") %>
-            <% if url.length != 0 && link.text != 0 %>
+            <% if url.length != 0 && link.text.strip.length != 0 %>
               <li><%= link_to link.text, url %></li>
             <% end %>
           <% end %>
@@ -66,10 +71,14 @@
           <% if link.href != nil && link.text != nil%>
             <% url1 = link.href.gsub(/(.*)ask.com(.*)/,"") %>
             <% url2 = url1.gsub(/(.*)answers.yahoo(.*)/,"") %>
-            <% url = url2.gsub(/javascript(.*)/,"") %>
+            <% url3 = url2.gsub(/javascript(.*)/,"") %>
+            <% url = url3.gsub(/(.*)freebase.com(.*)/,"") %>
             <% text1 = link.text.gsub(/(.*)More »(.*)/,"") %>
-            <% text = text1.gsub(/(.*)Mobile Site(.*)/,"") %>
-            <% if url.length != 0 && text.length != 0 %>
+            <% text2 = text1.gsub(/(.*)Mobile Site(.*)/,"") %>
+            <% text3 = text2.gsub(/Source/,"") %>
+            <% text4 = text3.gsub(/(.*)IMDb(.*)/,"") %>
+            <% text = text4.gsub(/More>>/,"") %>
+            <% if url.length != 0 && text.strip.length != 0 %>
               <li><%= link_to text, url %></li>
             <% end %>
           <% end %>
@@ -90,11 +99,12 @@
             <% url3 = url2.gsub(/(.*)search?(.*)/,"") %>
             <% url4 = url3.gsub(/(.*)about?(.*)/,"") %>
             <% url5 = url4.gsub(/javascript(.*)/,"") %>
-            <% url = url5.gsub(/^(?!http(.*)$).*/,"") %>
-            <% text1 = link.text.gsub(/(.*)More »(.*)/,"") %>
+            <% url6 = url5.gsub(/^(?!http(.*)$).*/,"") %>
+            <% url = url6.gsub(/(.*)freebase.com(.*)/,"") %>
+            <% text1 = link.text.gsub(/(.*)More&gt;&gt;(.*)/,"") %>
             <% text2 = text1.gsub(/Data from: Freebase/,"") %>
             <% text = text2.gsub(/(.*)Mobile Site(.*)/,"") %>
-            <% if url.length != 0 && text.length != 0 %>
+            <% if url.length != 0 && text.strip.length != 0 %>
               <li><%= link_to text, url %></li>
             <% end %>
           <% end %>
@@ -113,9 +123,10 @@
             <% url1 = link.href.gsub(/(.*)wow.com(.*)/,"") %>
             <% url2 = url1.gsub(/(.*)wow.nextag.com(.*)/,"") %>
             <% url3 = url2.gsub(/^(?!http(.*)$).*/,"") %>
-            <% url = url3.gsub(/(.*)aol.com(.*)/,"") %>
-            <% text = link.text.gsub(/(.*)Data from: Freebase(.*)/,"") %>
-            <% if url.length != 0 && text.length != 0 %>
+            <% url4 = url3.gsub(/(.*)aol.com(.*)/,"") %>
+            <% url = url4.gsub(/(.*)freebase.com(.*)/,"") %>
+            <% text = link.text %>
+            <% if url.length != 0 && text.strip.length != 0 %>
               <li><%= link_to text, url %></li>
             <% end %>
           <% end %>
