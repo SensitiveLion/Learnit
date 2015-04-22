@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'homes#index'
 
   resources :courses do
-    resources :lessons, only: [:new, :create]
+    resources :lessons, only: [:new, :create, :show]
     resources :saves, only: :create
     resources :searches, only: [:index, :create]
   end

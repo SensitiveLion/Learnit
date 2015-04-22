@@ -1,5 +1,5 @@
 <h1><%= @course.name %></h1>
-<h4><%= link_to("search for more about this", course_searches_path(@course)) %>
+<h4><%= link_to "search for more about this", course_searches_path(@course) %>
 <div class="row">
   <div class="small-8 large-centered column">
     <div class="panel">
@@ -8,7 +8,7 @@
           <li class="larger"><%= lesson.title %></li>
           <ul>
             <li><%= markdown(lesson.body) %></li>
-            <li><%= link_to "more information", lesson.outside_links %></li>
+            <li><%= link_to "more information", course_lesson_path(@course, lesson) %></li>
             <div class="right">
               <% if current_user != nil %>
                 <% if current_user == @course.user || current_user.has_authority? %>

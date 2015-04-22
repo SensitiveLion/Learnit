@@ -6,6 +6,18 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new
   end
 
+  def show
+    @course = Course.find(params[:course_id])
+    @lesson = @course.lessons.find(params[:id])
+    @name = @lesson.title
+    @google = Search.google(@name)
+    @bing = Search.bing(@name)
+    @yahoo = Search.yahoo(@name)
+    @ask = Search.ask(@name)
+    @aol = Search.aol(@name)
+    @wow = Search.wow(@name)
+  end
+
   def create
     @lesson = Lesson.new(lesson_params)
     @course = Course.find(params[:course_id])
@@ -47,6 +59,6 @@ class LessonsController < ApplicationController
     end
   end
   def lesson_params
-    params.require(:lesson).permit(:title, :body, :second_body, :outside_links, :photo)
+    params.require(:lesson).permit(:title, :body)
   end
 end
