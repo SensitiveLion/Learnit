@@ -9,7 +9,7 @@ class LessonsController < ApplicationController
   def show
     @course = Course.find(params[:course_id])
     @lesson = @course.lessons.find(params[:id])
-    @name = @lesson.title
+    @name = @course.name + ", " + @lesson.title
     @google = Search.google(@name)
     @bing = Search.bing(@name)
     @yahoo = Search.yahoo(@name)
