@@ -39,15 +39,16 @@ ActiveRecord::Schema.define(version: 20150424152125) do
 
   add_index "lessons", ["title"], name: "index_lessons_on_title", unique: true, using: :btree
 
-  create_table "randoms", force: :cascade do |t|
-  end
-
   create_table "saves", force: :cascade do |t|
     t.integer "user_id",   null: false
     t.integer "course_id", null: false
   end
 
   create_table "searches", force: :cascade do |t|
+  end
+
+  create_table "things", force: :cascade do |t|
+    t.string "name", null: false
   end
 
   create_table "users", force: :cascade do |t|

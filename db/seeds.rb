@@ -15,8 +15,8 @@ Category.create(name: "How")
 require "nokogiri"
 require 'open-uri'
 
-9900.times do
+9876.times do
   doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Special:Random"))
-  Random.create(entry: doc.css('.firstHeading').text)
+  Thing.create(name: doc.css('.firstHeading').text)
   print "."
 end
