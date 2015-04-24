@@ -1,3 +1,3 @@
 class Thing < ActiveRecord::Base
-  validates :entry, presence: true
+  validates :name, presence: true
 end

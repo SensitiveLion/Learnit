@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: :show
   resources :lessons, only: [:edit, :update, :destroy]
-  resources :randoms, only: :show
+  resources :things, only: :index
 
   devise_for :users
   resources :users, only: :show
