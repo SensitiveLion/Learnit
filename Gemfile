@@ -57,3 +57,5 @@ gem 'rouge'
 ruby '2.1.5'
 gem 'rails_12factor'
 gem 'mechanize'
+gem "brakeman", :require => false
+gem "nokogiri"

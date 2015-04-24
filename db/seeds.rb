@@ -11,3 +11,12 @@ Category.create(name: "When")
 Category.create(name: "Where")
 Category.create(name: "Why")
 Category.create(name: "How")
+
+require "nokogiri"
+require 'open-uri'
+
+9900.times do
+  doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Special:Random"))
+  Random.create(entry: doc.css('.firstHeading').text)
+  print "."
+end
