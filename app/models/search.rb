@@ -3,6 +3,8 @@ class Search < ActiveRecord::Base
 
   require "mechanize"
 
+  common = hash.new
+
   def self.google(query)
     agent = Mechanize.new
     @google = agent.get('http://google.com/')

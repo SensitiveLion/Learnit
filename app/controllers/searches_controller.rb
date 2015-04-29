@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
   def index
+    @common = Hash.new
     @course = Course.find(params[:course_id])
     @name = @course.name
     @google = Search.google(@name)
