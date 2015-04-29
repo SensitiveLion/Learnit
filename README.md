@@ -17,6 +17,10 @@ rake db:create
 ### Database initialization
 rake db:migrate
 
+### Database seed
+rake db:seed
+(this will take a while)
+
 ### Deployment instructions
 Follow the heroku deployment instructions.  Create and migrate the database.
 
