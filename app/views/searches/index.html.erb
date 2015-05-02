@@ -7,17 +7,8 @@
       <h1>Google</h1>
       <div class="panel">
         <ol>
-        <% @google.links.each do |link| %>
-          <% url1 = link.href.gsub(/.url\?q\=/,"" ) %>
-          <% url2 = url1.gsub(/&sa=U&ei=(.*)/,"" ) %>
-          <% url3 = url2.gsub(/^(?!http(.*)$).*/,"" ) %>
-          <% url4 = url3.gsub(/.search?(.*)/,"" ) %>
-          <% url5 = url4.gsub(/(.*)google.com(.*)/,"" ) %>
-          <% url = url5.gsub(/(.*)webcache.(.*)/,"" ) %>
-          <% if url.length != 0 && link.text.strip.length != 0 %>
-            <li><%= link_to link.text, url %></li>
-            <% @common[link.text] = url %>
-          <% end %>
+        <% @google.each do |key, value| %>
+          <li><%= link_to key, value %></li>
         <% end %>
         </ol>
       </div>
