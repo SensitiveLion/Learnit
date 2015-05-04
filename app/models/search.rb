@@ -11,6 +11,10 @@ class Search < ActiveRecord::Base
     google_form =  @google.form('f')
     google_form.q = query
     @google = agent.submit(google_form)
+  end
+
+  def self.google_parse(input)
+    google(input)
     @google.links.each do |link|
       url1 = link.href.gsub(/.url\?q\=/,"" )
       url2 = url1.gsub(/&sa=U&ei=(.*)/,"" )
@@ -22,15 +26,20 @@ class Search < ActiveRecord::Base
         @google_links[link.text] = url
       end
     end
+    return @google_links
   end
 
   def self.bing(query)
-    @bink_links = Hash.new
+    @bing_links = Hash.new
     agent = Mechanize.new
     @bing = agent.get('https://bing.com/')
     bing_form = @bing.form()
     bing_form.q = query
     @bing = agent.submit(bing_form)
+  end
+
+  def self.bing_parse(input)
+    bing(input)
     @bing.links.each do |link|
       if link.href != nil && link.text != nil
         url1 = link.href.gsub(/^(?!http(.*)$).*/,"")
@@ -47,6 +56,7 @@ class Search < ActiveRecord::Base
         end
       end
     end
+    return @bing_links
   end
 
   def self.yahoo(query)
@@ -56,6 +66,10 @@ class Search < ActiveRecord::Base
     yahoo_form = @yahoo.form('s')
     yahoo_form.p = query
     @yahoo = agent.submit(yahoo_form)
+  end
+
+  def self.yahoo_parse(input)
+    yahoo(input)
     @yahoo.links.each do |link|
       if link.href != nil && link.text != nil
         url1 = link.href.gsub(/(.*)yahoo(.*)/,"")
@@ -67,7 +81,9 @@ class Search < ActiveRecord::Base
         end
       end
     end
+    return @yahoo_links
   end
+
   def self.ask(query)
     @ask_links = Hash.new
     agent = Mechanize.new
@@ -75,6 +91,10 @@ class Search < ActiveRecord::Base
     ask_form = @ask.form()
     ask_form.q = query
     @ask = agent.submit(ask_form)
+  end
+
+  def self.ask_parse(input)
+    ask(input)
     @ask.links.each do |link|
       if link.href != nil && link.text != nil
         url1 = link.href.gsub(/(.*)ask.com(.*)/,"")
@@ -91,6 +111,7 @@ class Search < ActiveRecord::Base
         end
       end
     end
+    return @ask_links
   end
 
 
@@ -101,6 +122,10 @@ class Search < ActiveRecord::Base
     aol_form = @aol.form('CSBsearchForm1')
     aol_form.q = query
     @aol = agent.submit(aol_form)
+  end
+
+  def self.aol_parse(input)
+    aol(input)
     @aol.links.each do |link|
       if link.href != nil && link.text != nil
         url1 = link.href.gsub(/(.*)aol(.*)/,"")
@@ -118,6 +143,7 @@ class Search < ActiveRecord::Base
         end
       end
     end
+    return @aol_links
   end
 
   def self.wow(query)
@@ -127,6 +153,10 @@ class Search < ActiveRecord::Base
     wow_form = @wow.form('SearchBoxForm')
     wow_form.q = query
     @wow = agent.submit(wow_form)
+  end
+
+  def self.wow_parse(input)
+    wow(input)
     @wow.links.each do |link|
       if link.href != nil && link.text != nil
         url1 = link.href.gsub(/(.*)wow.com(.*)/,"")
@@ -140,5 +170,6 @@ class Search < ActiveRecord::Base
         end
       end
     end
+    return @wow_links
   end
 end

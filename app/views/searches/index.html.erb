@@ -19,22 +19,8 @@
       <h1>Bing</h1>
       <div class="panel">
         <ol>
-        <% @bing.links.each do |link| %>
-          <% if link.href != nil && link.text != nil%>
-            <% url1 = link.href.gsub(/^(?!http(.*)$).*/,"") %>
-            <% url2 = url1.gsub(/(.*)microsoft.com(.*)/,"") %>
-            <% url = url2.gsub(/(.*)freebase.com(.*)/,"") %>
-            <% url = url2.gsub(/(.*)twitter.com(.*)/,"") %>
-            <% text1 = link.text.gsub(/en.wikipedia.org(.*)/,"") %>
-            <% text2 = text1.gsub(/Freebase/,"") %>
-            <% text3 = text2.gsub(/(.*)bit.ly(.*)/,"") %>
-            <% text4 = text3.gsub(/^Wikipedia/,"") %>
-            <% text = text4.gsub(/^More on Wikipedia/,"") %>
-            <% if url.length != 0 && text.strip.length != 0 %>
-              <li><%= link_to text, url %></li>
-              <% @common[text] = url %>
-            <% end %>
-          <% end %>
+        <% @bing.each do |key, value| %>
+          <li><%= link_to key, value %></li>
         <% end %>
         </ol>
       </div>
@@ -45,17 +31,8 @@
       <h1>Yahoo</h1>
       <div class="panel">
         <ol>
-        <% @yahoo.links.each do |link| %>
-          <% if link.href != nil && link.text != nil%>
-            <% url1 = link.href.gsub(/(.*)yahoo(.*)/,"") %>
-            <% url2 = url1.gsub(/(.*)flickr.com(.*)/,"") %>
-            <% url3 = url2.gsub(/javascript(.*)/,"") %>
-            <% url = url3.gsub(/(.*)cache.aspx(.*)/,"") %>
-            <% if url.length != 0 && link.text.strip.length != 0 %>
-              <li><%= link_to link.text, url %></li>
-              <% @common[link.text] = url %>
-            <% end %>
-          <% end %>
+        <% @yahoo.each do |key, value| %>
+          <li><%= link_to key, value %></li>
         <% end %>
         </ol>
       </div>
@@ -66,22 +43,8 @@
       <h1>Ask</h1>
       <div class="panel">
         <ol>
-        <% @ask.links.each do |link| %>
-          <% if link.href != nil && link.text != nil%>
-            <% url1 = link.href.gsub(/(.*)ask.com(.*)/,"") %>
-            <% url2 = url1.gsub(/(.*)answers.yahoo(.*)/,"") %>
-            <% url3 = url2.gsub(/javascript(.*)/,"") %>
-            <% url = url3.gsub(/(.*)freebase.com(.*)/,"") %>
-            <% text1 = link.text.gsub(/(.*)More »(.*)/,"") %>
-            <% text2 = text1.gsub(/(.*)Mobile Site(.*)/,"") %>
-            <% text3 = text2.gsub(/Source/,"") %>
-            <% text4 = text3.gsub(/(.*)IMDb(.*)/,"") %>
-            <% text = text4.gsub(/More>>/,"") %>
-            <% if url.length != 0 && text.strip.length != 0 %>
-              <li><%= link_to text, url %></li>
-              <% @common[text] = url %>
-            <% end %>
-          <% end %>
+        <% @ask.each do |key, value| %>
+          <li><%= link_to key, value %></li>
         <% end %>
         </ol>
       </div>
@@ -92,23 +55,8 @@
       <h1>Aol</h1>
       <div class="panel">
         <ol>
-        <% @aol.links.each do |link| %>
-          <% if link.href != nil && link.text != nil%>
-            <% url1 = link.href.gsub(/(.*)aol(.*)/,"") %>
-            <% url2 = url1.gsub(/(.*)google.com(.*)/,"") %>
-            <% url3 = url2.gsub(/(.*)search?(.*)/,"") %>
-            <% url4 = url3.gsub(/(.*)about?(.*)/,"") %>
-            <% url5 = url4.gsub(/javascript(.*)/,"") %>
-            <% url6 = url5.gsub(/^(?!http(.*)$).*/,"") %>
-            <% url = url6.gsub(/(.*)freebase.com(.*)/,"") %>
-            <% text1 = link.text.gsub(/(.*)More&gt;&gt;(.*)/,"") %>
-            <% text2 = text1.gsub(/Data from: Freebase/,"") %>
-            <% text = text2.gsub(/(.*)Mobile Site(.*)/,"") %>
-            <% if url.length != 0 && text.strip.length != 0 %>
-              <li><%= link_to text, url %></li>
-              <% @common[text] = url %>
-            <% end %>
-          <% end %>
+        <% @aol.each do |key, value| %>
+          <li><%= link_to key, value %></li>
         <% end %>
         </ol>
       </div>
@@ -119,19 +67,8 @@
       <h1>Wow</h1>
       <div class="panel">
         <ol>
-        <% @wow.links.each do |link| %>
-          <% if link.href != nil && link.text != nil%>
-            <% url1 = link.href.gsub(/(.*)wow.com(.*)/,"") %>
-            <% url2 = url1.gsub(/(.*)wow.nextag.com(.*)/,"") %>
-            <% url3 = url2.gsub(/^(?!http(.*)$).*/,"") %>
-            <% url4 = url3.gsub(/(.*)aol.com(.*)/,"") %>
-            <% url = url4.gsub(/(.*)freebase.com(.*)/,"") %>
-            <% text = link.text %>
-            <% if url.length != 0 && text.strip.length != 0 %>
-              <li><%= link_to text, url %></li>
-              <% @common[text] = url %>
-            <% end %>
-          <% end %>
+        <% @wow.each do |key, value| %>
+          <li><%= link_to key, value %></li>
         <% end %>
         </ol>
       </div>
