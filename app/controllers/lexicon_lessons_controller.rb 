@@ -1,11 +1,11 @@
-class LearnipediaLessonsController < ApplicationController
+class LexiconLessonsController < ApplicationController
   def destroy
-    @lesson = LearnipediaLesson.find(params[:id])
-    @learnipedia = @lesson.learnipedia
+    @lesson = LexiconLesson.find(params[:id])
+    @lexicon = @lesson.lexicon
     @lesson.destroy
 
-    unless @learnipedia.id.nil?
-      redirect_to learnipedia_path(@learnipedia)
+    unless @lexicon.id.nil?
+      redirect_to lexicon_path(@lexicon)
     end
   end
 end

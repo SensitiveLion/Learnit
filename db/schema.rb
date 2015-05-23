@@ -40,7 +40,8 @@ ActiveRecord::Schema.define(version: 20150523212850) do
   add_index "lessons", ["title"], name: "index_lessons_on_title", unique: true, using: :btree
 
   create_table "lexicon_lessons", force: :cascade do |t|
-    t.text "body", null: false
+    t.integer "lexicon_id", null: false
+    t.text    "body",       null: false
   end
 
   create_table "lexicons", force: :cascade do |t|

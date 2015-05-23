@@ -1,12 +1,12 @@
-class LearnipediasController < ApplicationController
+class LexiconsController < ApplicationController
   def show
-    @learnipedia = Learnipedia.find(params[:id])
-    @lessons = @learnipedia.lessons.order(:created_at)
+    @lexicon = Lexicon.find(params[:id])
+    @lessons = LexiconLesson.find(params[:lexicon_id])
   end
 
   def destroy
-    @learnipedia = Learnipedia.find(params[:id])
-    @learnipedia.destroy
+    @lexicon = Lexicon.find(params[:id])
+    @lexicon.destroy
     flash[:notice] = 'course deleted.'
     redirect_to root_path
   end
