@@ -22,3 +22,17 @@ count = 0
   count += 1
   print count
 end
+
+# 1.times do
+#   text = []
+#   doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Special:Random"))
+#   doc.css('p').each do |p|
+#     if p.text.length != 0
+#       text << p.text
+#     end
+#   end
+#   binding.pry
+#   Learipedia.create(name: doc.css('.firstHeading').text, body: text)
+#   # count += 1
+#   # print count
+# end
