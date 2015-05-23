@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories, only: :show
   resources :lessons, only: [:edit, :update, :destroy]
   resources :things, only: :index
+  resources :lexicon, only: :show
 
   devise_for :users
   resources :users, only: :show
