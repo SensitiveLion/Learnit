@@ -5,10 +5,8 @@
     <div class="panel">
       <ol>
         <% @lessons.each do |lesson| %>
-          <li class="larger"><%= lesson.title %></li>
           <ul>
             <li><%= markdown(lesson.body) %></li>
-            <li><%= link_to "more information", course_lesson_path(@lexicon, lesson) %></li>
             <div class="right">
               <% if current_user != nil %>
                 <% if current_user.has_authority? %>

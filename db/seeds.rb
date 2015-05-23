@@ -23,17 +23,16 @@ count = 0
   print count
 end
 
-1.times do
-  text = []
+second_count = 0
+500.times do
   doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Special:Random"))
   lexicon = Lexicon.create(title: doc.css('.firstHeading').text)
   doc.css('p').each do |p|
     if p.text.length != 0
-      LexiconLesson.create(lexicon: )
+      LexiconLesson.create(lexicon: lexicon, body: p.text)
     end
   end
-  binding.pry
-  Learipedia.create(name: doc.css('.firstHeading').text, body: text)
-  # count += 1
-  # print count
+
+  second_count += 1
+  print second_count
 end

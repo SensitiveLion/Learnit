@@ -1,7 +1,7 @@
 class LexiconsController < ApplicationController
   def show
     @lexicon = Lexicon.find(params[:id])
-    @lessons = LexiconLesson.find(params[:lexicon_id])
+    @lessons = LexiconLesson.where(lexicon_id: params[:id])
   end
 
   def destroy
