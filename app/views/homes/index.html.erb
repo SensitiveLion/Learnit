@@ -3,7 +3,7 @@
     <h1 class="head">Learnit</h1>
     <h2>
       <% if @lexicon != nil %>
-        <%= link_to image_tag("learning_ninja.png"), lexicon_path(@lexicon) %>
+        <%= link_to image_tag("learning_ninja.png"), lexicon_path(@lexicon[0].id) %>
       <% else %>
         <%= link_to image_tag("learning_ninja.png"), new_course_path %>
       <% end %>

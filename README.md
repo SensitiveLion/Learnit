@@ -3,7 +3,7 @@
 ![Learning Ninja](http://i.imgur.com/lF3aErA.png "Learning Ninja")
 
 ### Ruby version
-Used version ruby 2.1.5p273
+Used version ruby 2.2.1
 
 ### System dependencies
 None

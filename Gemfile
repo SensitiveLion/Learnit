@@ -54,7 +54,7 @@ gem 'foundation-rails'
 gem 'kaminari'
 gem 'redcarpet'
 gem 'rouge'
-ruby '2.1.5'
+ruby '2.2.1'
 gem 'rails_12factor'
 gem 'mechanize'
 gem "brakeman", :require => false
