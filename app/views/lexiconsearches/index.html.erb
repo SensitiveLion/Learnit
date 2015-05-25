@@ -1,0 +1,77 @@
+<div class="large-12 columns">
+  <div class="row">
+    <div class="small-10 large-centered column">
+      <div class="panel">
+        <h3><%= @name %></h3>
+      </div>
+      <h1>Google</h1>
+      <div class="panel">
+        <ol>
+        <% @google.each do |key, value| %>
+          <li><%= link_to key, value %></li>
+        <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 large-centered column">
+      <h1>Bing</h1>
+      <div class="panel">
+        <ol>
+        <% @bing.each do |key, value| %>
+          <li><%= link_to key, value %></li>
+        <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 large-centered column">
+      <h1>Yahoo</h1>
+      <div class="panel">
+        <ol>
+        <% @yahoo.each do |key, value| %>
+          <li><%= link_to key, value %></li>
+        <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 large-centered column">
+      <h1>Ask</h1>
+      <div class="panel">
+        <ol>
+        <% @ask.each do |key, value| %>
+          <li><%= link_to key, value %></li>
+        <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 large-centered column">
+      <h1>Aol</h1>
+      <div class="panel">
+        <ol>
+        <% @aol.each do |key, value| %>
+          <li><%= link_to key, value %></li>
+        <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-10 large-centered column">
+      <h1>Wow</h1>
+      <div class="panel">
+        <ol>
+        <% @wow.each do |key, value| %>
+          <li><%= link_to key, value %></li>
+        <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

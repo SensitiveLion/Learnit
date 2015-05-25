@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523212850) do
+ActiveRecord::Schema.define(version: 20150525205415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 20150523212850) do
   create_table "lexicon_lessons", force: :cascade do |t|
     t.integer "lexicon_id", null: false
     t.text    "body",       null: false
+  end
+
+  create_table "lexicon_searches", force: :cascade do |t|
   end
 
   create_table "lexicons", force: :cascade do |t|

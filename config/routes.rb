@@ -4,13 +4,16 @@ Rails.application.routes.draw do
   resources :courses do
     resources :lessons, only: [:new, :create, :show]
     resources :saves, only: :create
-    resources :searches, only: [:index, :create]
+    resources :searches, only: :index
+  end
+
+  resources :lexicons, only: :show do
+    resources :lexicon_searches, only: :index
   end
 
   resources :categories, only: :show
   resources :lessons, only: [:edit, :update, :destroy]
   resources :things, only: :index
-  resources :lexicons, only: :show
 
   devise_for :users
   resources :users, only: :show
