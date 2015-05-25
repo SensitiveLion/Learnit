@@ -16,7 +16,7 @@ require "nokogiri"
 require 'open-uri'
 
 count = 0
-9876.times do
+9999.times do
   doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Special:Random"))
   Thing.create(name: doc.css('.firstHeading').text)
   count += 1
@@ -24,15 +24,16 @@ count = 0
 end
 
 second_count = 0
-500.times do
+1000.times do
   doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Special:Random"))
   lexicon = Lexicon.create(title: doc.css('.firstHeading').text)
-  doc.css('p').each do |p|
-    if p.text.length != 0
-      LexiconLesson.create(lexicon: lexicon, body: p.text)
+  if Lexicon.exist?(title: doc.css('.firstHeading').text)
+    doc.css('p').each do |p|
+      if p.text.length != 0
+        LexiconLesson.create(lexicon: lexicon, body: p.text)
+      end
     end
+    second_count += 1
+    print second_count
   end
-
-  second_count += 1
-  print second_count
 end
