@@ -27,13 +27,12 @@ second_count = 0
 1000.times do
   doc = Nokogiri::HTML(open("https://en.wikipedia.org/wiki/Special:Random"))
   lexicon = Lexicon.create(title: doc.css('.firstHeading').text)
-  if Lexicon.exist?(title: doc.css('.firstHeading').text)
-    doc.css('p').each do |p|
-      if p.text.length != 0
-        LexiconLesson.create(lexicon: lexicon, body: p.text)
-      end
+  doc.css('p').each do |p|
+    if p.text.length != 0
+      LexiconLesson.create(lexicon: lexicon, body: p.text)
     end
-    second_count += 1
-    print second_count
   end
+
+  second_count += 1
+  print second_count
 end
