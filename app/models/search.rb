@@ -3,7 +3,6 @@ class Search < ActiveRecord::Base
 
   require "mechanize"
 
-
   def self.google(query)
     @google_links = Hash.new
     agent = Mechanize.new

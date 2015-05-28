@@ -8,5 +8,14 @@ class SearchesController < ApplicationController
     @ask = Search.ask_parse(@name)
     @aol = Search.aol_parse(@name)
     @wow = Search.wow_parse(@name)
+    @top_searches = Hash.new
+    @top_searches.merge(@google)
+    @top_searches.merge(@bing)
+    @top_searches.merge(@yahoo)
+    @top_searches.merge(@ask)
+    @top_searches.merge(@aol)
+    @top_searches.merge(@wow)
+
+    binding.pry
   end
 end
